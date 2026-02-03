@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+.claude
+.specify
+specs
+
+WORKSHOP*
+slides*

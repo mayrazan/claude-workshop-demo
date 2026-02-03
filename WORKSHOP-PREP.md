@@ -51,9 +51,16 @@ Apresentar em **30 minutos** para o time de tech da Winnin como o Claude Code po
 ## O que falta fazer
 
 ### Antes do workshop
-- [ ] Criar time no Linear só para o teste (para não poluir os times reais)
+- [x] ~~Criar time no Linear só para o teste~~ (usando time "Claude teste")
+- [x] Criar projeto no Linear para a demo (projeto "Pagina de Contato")
 - [ ] Fazer dry-run completo do workshop
 - [ ] Testar Chrome DevTools MCP
+
+### Projeto Linear criado
+- **Nome:** Pagina de Contato
+- **Time:** Claude teste
+- **URL:** https://linear.app/winnin/project/pagina-de-contato-6a6fbc2bd3ca
+- **Status:** Vazio (issues serao criadas ao vivo)
 
 ---
 
@@ -76,6 +83,22 @@ Apresentar em **30 minutos** para o time de tech da Winnin como o Claude Code po
 8. /pr-review-toolkit:review-pr
 ```
 
+### Passo bônus: Diagrama Mermaid (opcional, +2 min)
+Após criar o PR, demonstrar documentação automática:
+```
+9. "Gere um diagrama Mermaid do fluxo de submit do formulário de contato"
+```
+
+**Resultado esperado:** Diagrama de sequência mostrando:
+- Usuário preenche form → Validação → API call → Feedback
+
+**Como mostrar:**
+- Copiar o código Mermaid gerado
+- Colar no PR description (GitHub renderiza nativamente)
+- Mostrar que a documentação visual já está no PR
+
+**Frase de efeito:** "Em 30 segundos você tem documentação visual que normalmente levaria 15 minutos no draw.io"
+
 ### Estrutura do workshop (30 min)
 1. Intro + Slides (3 min)
 2. Planejamento com Linear (5 min)
@@ -91,6 +114,21 @@ Apresentar em **30 minutos** para o time de tech da Winnin como o Claude Code po
 - **Plano completo:** `~/.claude/plans/smooth-shimmying-whisper.md`
 - **Slides:** `slides.html`
 - **Este resumo:** `WORKSHOP-PREP.md`
+
+---
+
+## Parte 2: Spec-Driven Development (Bônus)
+
+Uma extensão opcional de 15-20 min demonstrando **Spec-kit** (GitHub) para features complexas.
+
+- **Preparação:** `WORKSHOP-PREP-PART2.md`
+- **Slides:** `slides-part2.html`
+- **Spec backup:** `specs/notification-system.spec.md`
+- **Código base:** `src/types/notification.types.ts`, `src/services/NotificationChannel.ts`
+
+**Ferramenta:** [Spec-kit](https://github.com/github/spec-kit) - Workflow: Specify → Plan → Tasks → Implement
+
+**Cenário:** Sistema de notificações multi-canal com rate limiting, agregação e horário silencioso.
 
 ---
 
