@@ -1,12 +1,36 @@
-import { useState } from 'react'
-import type { MeetingResponse } from '../types/meeting'
+import { useState, useEffect } from 'react'
+import type { DisplayResult, LatestMeetingResponse, MeetingResponse } from '../types/meeting'
 import { MeetingResults } from './MeetingResults'
 
 export function MeetingForm() {
   const [text, setText] = useState('')
-  const [result, setResult] = useState<MeetingResponse | null>(null)
+  const [result, setResult] = useState<DisplayResult | null>(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  // Hydrate from last session on mount
+  useEffect(() => {
+    fetch('/api/meetings/latest')
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data: LatestMeetingResponse | null) => {
+        if (data) {
+          setResult({
+            title: data.meeting.title,
+            // summary is not stored — omitted from hydrated state
+            action_items: data.action_items.map((item) => ({
+              id: item.id,
+              description: item.description,
+              assignee: item.assignee,
+              priority: item.priority,
+              status: item.status,
+            })),
+          })
+        }
+      })
+      .catch(() => {
+        // Silent fail — empty state is acceptable if the server is not running
+      })
+  }, [])
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -25,7 +49,12 @@ export function MeetingForm() {
         throw new Error(body.error ?? `Server error: ${res.status}`)
       }
       const data: MeetingResponse = await res.json()
-      setResult(data)
+      // Fresh process result — include title and summary
+      setResult({
+        title: data.title,
+        summary: data.summary,
+        action_items: data.action_items,
+      })
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Unknown error')
     } finally {
