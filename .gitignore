@@ -35,6 +35,3 @@ WORKSHOP*
 slides*
 
 settings.json
-
-# SQLite database files — local only
-data/*.db
