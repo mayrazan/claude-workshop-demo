@@ -27,7 +27,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. The app returns a structured meeting summary within seconds of submission
   3. Action items appear with description, assignee, and priority extracted from the text
   4. The OpenAI API key is never exposed in the browser (calls go through backend)
-**Plans**: TBD
+**Plans**: 3 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Express backend infrastructure (deps, scripts, Vite proxy, server entry point)
+- [ ] 01-02-PLAN.md — OpenAI integration: Zod schemas, processMeetingText(), POST /api/meetings/process route
+- [ ] 01-03-PLAN.md — React frontend: shared types, MeetingForm, MeetingResults, App.tsx update
 
 ### Phase 2: Persistence
 **Goal**: Action items and meeting data survive page refresh without any user action
