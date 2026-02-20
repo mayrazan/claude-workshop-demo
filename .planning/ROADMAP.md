@@ -41,7 +41,11 @@ Plans:
 **Success Criteria** (what must be TRUE):
   1. After processing a meeting, refreshing the page still shows the same action items
   2. Action items created in one session are present when the app is reopened
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Server persistence layer (better-sqlite3, db.ts, title field, save-on-process, GET /latest)
+- [ ] 02-02-PLAN.md — Frontend hydration (types update, DisplayResult, useEffect on mount, verify checkpoint)
 
 ### Phase 3: Dashboard + Action Items
 **Goal**: Users can view, manage, and track all action items from a central dashboard
