@@ -49,9 +49,9 @@
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| AI-01 | Phase 1 | Pending |
-| AI-02 | Phase 1 | Pending |
-| AI-03 | Phase 1 | Pending |
+| AI-01 | Phase 1 | In Progress (infra done via 01-01) |
+| AI-02 | Phase 1 | In Progress (infra done via 01-01) |
+| AI-03 | Phase 1 | In Progress (infra done via 01-01) |
 | ITEM-04 | Phase 2 | Pending |
 | ITEM-01 | Phase 3 | Pending |
 | ITEM-02 | Phase 3 | Pending |
@@ -66,4 +66,4 @@
 
 ---
 *Requirements defined: 2026-02-20*
-*Last updated: 2026-02-20 after roadmap creation*
+*Last updated: 2026-02-20 after 01-01 completion (backend infrastructure)*

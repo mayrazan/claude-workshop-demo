@@ -30,7 +30,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Express backend infrastructure (deps, scripts, Vite proxy, server entry point)
+- [x] 01-01-PLAN.md — Express backend infrastructure (deps, scripts, Vite proxy, server entry point)
 - [ ] 01-02-PLAN.md — OpenAI integration: Zod schemas, processMeetingText(), POST /api/meetings/process route
 - [ ] 01-03-PLAN.md — React frontend: shared types, MeetingForm, MeetingResults, App.tsx update
 
@@ -62,6 +62,6 @@ Phases execute in numeric order: 1 → 2 → 3
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Backend + AI Core | 0/? | Not started | - |
+| 1. Backend + AI Core | 1/3 | In progress | - |
 | 2. Persistence | 0/? | Not started | - |
 | 3. Dashboard + Action Items | 0/? | Not started | - |
