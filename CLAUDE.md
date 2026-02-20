@@ -35,3 +35,11 @@ Standard Vite React setup:
 - Design reference: Untitled UI Figma (`node-id=1639-343791`)
 - Slides: `slides.html` (navigate with arrow keys)
 - Preparation checklist: `WORKSHOP-PREP.md`
+
+## Active Technologies
+- TypeScript ~5.9.x (strict mode) + React 19.x, Vite 7.x, lucide-react ^0.563 (001-meeting-notes-tracker)
+- Browser `localStorage` (key: `"meetings"`, value: `JSON.stringify(Meeting[])`) (001-meeting-notes-tracker)
+- Browser `localStorage` (key: `"meetings"`, value: `JSON.stringify(Meeting[])`) (001-meeting-notes-tracker)
+
+## Recent Changes
+- 001-meeting-notes-tracker: Added TypeScript ~5.9.x (strict mode) + React 19.x, Vite 7.x, lucide-react ^0.563
