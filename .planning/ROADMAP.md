@@ -13,7 +13,7 @@ Three phases deliver the core value: a secure AI backend that processes meeting 
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Backend + AI Core** - Express backend processes meeting text via GPT-4o and returns structured summary + action items (completed 2026-02-20)
-- [ ] **Phase 2: Persistence** - Action items and meetings are saved to SQLite and survive page refresh
+- [x] **Phase 2: Persistence** - Action items and meetings are saved to SQLite and survive page refresh (completed 2026-02-20)
 - [ ] **Phase 3: Dashboard + Action Items** - Users manage, filter, edit, and delete action items from a central dashboard
 
 ## Phase Details
@@ -67,5 +67,5 @@ Phases execute in numeric order: 1 → 2 → 3
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Backend + AI Core | 3/3 | Complete | 2026-02-20 |
-| 2. Persistence | 0/? | Not started | - |
+| 2. Persistence | 2/2 | Complete   | 2026-02-20 |
 | 3. Dashboard + Action Items | 0/? | Not started | - |

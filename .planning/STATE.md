@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-02-20)
 Phase: 2 of 3 (Persistence)
 Plan: 2 of 2 in current phase (awaiting human verification — checkpoint Task 3)
 Status: In progress
-Last activity: 2026-02-20 — Phase 02 Plan 02 auto tasks complete; checkpoint:human-verify pending
+Last activity: 2026-02-20 — Phase 02 Plan 01 complete (SQLite persistence layer); Plan 02 checkpoint:human-verify pending
 
 Progress: [██████░░░░] 55%
 
@@ -49,6 +49,10 @@ Recent decisions affecting current work:
 - [01-01]: Use Vite proxy for CORS in dev instead of cors middleware — MVP sufficient, avoids over-engineering
 - [01-01]: dotenv/config as first import in server/index.ts — guarantees env vars available before any module reads process.env
 - [01-01]: Placeholder meetingsRouter returns 501 — allows server to boot and be testable before Plan 02 implements real router
+- [02-01]: db.ts singleton pattern with module-level schema creation — no migration tooling needed for MVP
+- [02-01]: WAL journal mode for better read/write concurrency in SQLite
+- [02-01]: lastInsertRowid cast bigint to Number — better-sqlite3 quirk on 64-bit platforms
+- [02-01]: Side-effect import of db.ts in server/index.ts ensures tables exist before routes handle requests
 - [02-02]: DisplayResult.summary is optional — summary not persisted to DB; hydrated state omits it by design
 - [02-02]: Silent catch in hydration useEffect — empty DB state shows clean form without error; failure mode is acceptable
 - [02-02]: useEffect with empty dep array for mount-only hydration — no polling needed
@@ -64,5 +68,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-20
-Stopped at: Phase 02 Plan 02 — checkpoint:human-verify Task 3 (persistence end-to-end verification)
+Stopped at: Phase 02 Plan 01 complete — Plan 02 checkpoint:human-verify still pending
 Resume file: None

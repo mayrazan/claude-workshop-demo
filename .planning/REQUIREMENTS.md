@@ -16,7 +16,7 @@
 - [ ] **ITEM-01**: Usuário pode editar inline a descrição, responsável e prioridade de cada action item
 - [ ] **ITEM-02**: Usuário pode alterar o status de cada action item (todo / in-progress / done)
 - [ ] **ITEM-03**: Usuário pode deletar action items incorretos ou irrelevantes
-- [ ] **ITEM-04**: Dados de action items são persistidos localmente e sobrevivem ao page refresh
+- [x] **ITEM-04**: Dados de action items são persistidos localmente e sobrevivem ao page refresh
 
 ### Dashboard
 
@@ -52,7 +52,7 @@
 | AI-01 | Phase 1 | In Progress (infra done via 01-01) |
 | AI-02 | Phase 1 | In Progress (infra done via 01-01) |
 | AI-03 | Phase 1 | In Progress (infra done via 01-01) |
-| ITEM-04 | Phase 2 | Pending |
+| ITEM-04 | Phase 2 | Complete |
 | ITEM-01 | Phase 3 | Pending |
 | ITEM-02 | Phase 3 | Pending |
 | ITEM-03 | Phase 3 | Pending |
