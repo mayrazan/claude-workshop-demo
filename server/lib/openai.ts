@@ -8,7 +8,7 @@ export const openai = new OpenAI({
 
 export const ActionItemSchema = z.object({
   description: z.string(),
-  assignee: z.string().optional(),
+  assignee: z.string().nullable().optional(),
   priority: z.enum(['low', 'medium', 'high']),
 })
 

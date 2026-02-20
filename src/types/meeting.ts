@@ -1,6 +1,6 @@
 export interface ActionItem {
   description: string
-  assignee?: string
+  assignee?: string | null
   priority: 'low' | 'medium' | 'high'
 }
 
