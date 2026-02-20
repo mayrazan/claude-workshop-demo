@@ -44,4 +44,3 @@ npm run preview  # Preview do build
 ## Recursos
 
 - [Figma Design](https://www.figma.com/design/...) - Untitled UI
-- [Slides](slides.html) - Navegue com as setas
