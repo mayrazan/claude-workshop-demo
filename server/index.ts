@@ -1,4 +1,6 @@
 import 'dotenv/config'
+// Side-effect import: creates tables on startup
+import './lib/db.js'
 import express from 'express'
 import { meetingsRouter } from './routes/meetings.js'
 

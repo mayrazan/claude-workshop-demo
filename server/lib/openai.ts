@@ -13,6 +13,7 @@ export const ActionItemSchema = z.object({
 })
 
 export const MeetingResponseSchema = z.object({
+  title: z.string(),
   summary: z.string(),
   action_items: z.array(ActionItemSchema),
 })
@@ -26,7 +27,7 @@ export async function processMeetingText(text: string): Promise<MeetingResponse>
       {
         role: 'system',
         content:
-          'You are a meeting assistant. Extract a concise summary (2-4 sentences) and all action items from the meeting notes. For each action item, identify the person responsible (assignee) if mentioned, and assign a priority level (low/medium/high) based on urgency cues in the text. If no assignee is mentioned, omit the field. If priority is unclear, default to medium.',
+          'You are a meeting assistant. Generate a short meeting title (5-10 words) capturing the main topic. Extract a concise summary (2-4 sentences) and all action items from the meeting notes. For each action item, identify the person responsible (assignee) if mentioned, and assign a priority level (low/medium/high) based on urgency cues in the text. If no assignee is mentioned, omit the field. If priority is unclear, default to medium.',
       },
       { role: 'user', content: text },
     ],
