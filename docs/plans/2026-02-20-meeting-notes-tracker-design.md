@@ -1,7 +1,7 @@
 # Design: AI Meeting Notes & Action Tracker – MVP
 
 **Date:** 2026-02-20
-**Branch:** 001-meeting-notes-tracker
+**Branch:** superpowers-backup
 **Linear:** https://linear.app/winnin/project/ai-meeting-notes-and-action-tracker-mvp-80f507bc5aee
 
 ---

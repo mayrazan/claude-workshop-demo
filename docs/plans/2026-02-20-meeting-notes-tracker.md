@@ -15,7 +15,7 @@
 Before starting, ensure you're on the correct branch:
 
 ```bash
-git checkout 001-meeting-notes-tracker
+git checkout superpowers-backup
 npm install
 npm run dev   # verify app runs at localhost:5173
 ```
