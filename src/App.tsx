@@ -1,35 +1,48 @@
+// src/App.tsx
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import MeetingInput from './components/MeetingInput'
+import Dashboard from './components/Dashboard'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+type View = 'input' | 'dashboard'
+
+export default function App() {
+  const [view, setView] = useState<View>('input')
+  const [refreshKey, setRefreshKey] = useState(0)
+
+  function handleSuccess() {
+    setRefreshKey((k) => k + 1)
+    setView('dashboard')
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="app">
+      <header className="app-header">
+        <div className="app-header__inner">
+          <span className="app-logo">Meeting Notes</span>
+          <nav className="app-nav">
+            <button
+              className={`nav-link ${view === 'input' ? 'nav-link--active' : ''}`}
+              onClick={() => setView('input')}
+            >
+              New Meeting
+            </button>
+            <button
+              className={`nav-link ${view === 'dashboard' ? 'nav-link--active' : ''}`}
+              onClick={() => setView('dashboard')}
+            >
+              Dashboard
+            </button>
+          </nav>
+        </div>
+      </header>
+
+      <main className="app-main">
+        {view === 'input' && <MeetingInput onSuccess={handleSuccess} />}
+        {view === 'dashboard' && (
+          <Dashboard onNewMeeting={() => setView('input')} refreshKey={refreshKey} />
+        )}
+      </main>
+    </div>
   )
 }
-
-export default App
