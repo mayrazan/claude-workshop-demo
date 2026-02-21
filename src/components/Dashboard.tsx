@@ -1,5 +1,5 @@
 // src/components/Dashboard.tsx
-import { useState, useEffect } from 'react'
+import { useState, useMemo } from 'react'
 import { Plus } from 'lucide-react'
 import { getMeetings, deleteActionItem, updateActionItemStatus, updateActionItem } from '../utils/storage'
 import DashboardFilters, { type Filters } from './DashboardFilters'
@@ -12,14 +12,14 @@ interface Props {
 }
 
 export default function Dashboard({ onNewMeeting, refreshKey }: Props) {
-  const [allItems, setAllItems] = useState<ActionItem[]>([])
+  const [localRefresh, setLocalRefresh] = useState(0)
   const [filters, setFilters] = useState<Filters>({ responsible: '', status: '', priority: '' })
 
-  useEffect(() => {
+  const allItems = useMemo(() => {
     const meetings = getMeetings()
-    const items = meetings.flatMap((m) => m.actionItems)
-    setAllItems(items)
-  }, [refreshKey])
+    return meetings.flatMap((m) => m.actionItems)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [refreshKey, localRefresh])
 
   const responsibles = [...new Set(allItems.map((i) => i.responsible))].sort()
 
@@ -31,8 +31,7 @@ export default function Dashboard({ onNewMeeting, refreshKey }: Props) {
   })
 
   function refresh() {
-    const meetings = getMeetings()
-    setAllItems(meetings.flatMap((m) => m.actionItems))
+    setLocalRefresh((n) => n + 1)
   }
 
   function handleStatusChange(item: ActionItem, status: ActionItem['status']) {
