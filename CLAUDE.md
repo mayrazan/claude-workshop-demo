@@ -33,5 +33,3 @@ Standard Vite React setup:
 ## Workshop Resources
 
 - Design reference: Untitled UI Figma (`node-id=1639-343791`)
-- Slides: `slides.html` (navigate with arrow keys)
-- Preparation checklist: `WORKSHOP-PREP.md`
