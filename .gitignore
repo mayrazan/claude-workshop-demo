@@ -10,7 +10,11 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+dist-server
 *.local
+
+# Environment secrets — never commit
+.env
 
 # Editor directories and files
 .vscode/*
@@ -31,4 +35,3 @@ WORKSHOP*
 slides*
 
 settings.json
-.env

@@ -1,42 +1,350 @@
-#root {
-  max-width: 1280px;
+/* ═══════════════════════════════════════════
+   App.css — Chronicle Terminal Theme
+   ═══════════════════════════════════════════ */
+
+/* ── Layout ──────────────────────────────── */
+.app {
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 0 2.5rem;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  min-height: 100vh;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* ── Header ──────────────────────────────── */
+header {
+  padding: 4rem 0 3rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
 }
 
-@keyframes logo-spin {
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -2.5rem;
+  right: -2.5rem;
+  bottom: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(245, 166, 35, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.app-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 1.75rem;
+  font-family: 'DM Mono', monospace;
+}
+
+.app-badge::before {
+  content: '';
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--amber);
+}
+
+header h1 {
+  font-family: 'Bebas Neue', impact, sans-serif;
+  font-weight: 400;
+  font-size: clamp(3rem, 10vw, 6.5rem);
+  line-height: 0.88;
+  letter-spacing: 0.02em;
+  color: var(--text-bright);
+  margin: 0 0 1.5rem;
+}
+
+header p {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  font-family: 'DM Mono', monospace;
+}
+
+/* ── Form Container ──────────────────────── */
+.meeting-form-container {
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* ── Form ──────────────────────────────────── */
+.meeting-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.meeting-form label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--amber);
+  font-weight: 500;
+}
+
+.meeting-form label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--border), transparent);
+}
+
+.meeting-form textarea {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  line-height: 1.8;
+  resize: vertical;
+  outline: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.meeting-form textarea:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 0 1px var(--amber), inset 0 0 24px var(--amber-glow);
+}
+
+.meeting-form textarea:disabled {
+  opacity: 0.5;
+}
+
+.meeting-form textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.5;
+  font-style: italic;
+}
+
+.meeting-form button {
+  align-self: flex-start;
+  padding: 0.875rem 2.75rem;
+  background: var(--amber);
+  color: var(--bg);
+  border: 1px solid transparent;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s, box-shadow 0.15s;
+  border-radius: 0;
+}
+
+.meeting-form button:hover:not(:disabled) {
+  background: #ffe4a8;
+  box-shadow: 0 0 28px var(--amber-glow);
+}
+
+.meeting-form button:active:not(:disabled) {
+  background: #d4881f;
+}
+
+.meeting-form button:disabled {
+  background: transparent;
+  color: var(--text-muted);
+  border-color: var(--border);
+  cursor: not-allowed;
+  animation: loading-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes loading-pulse {
+  0%,
+  100% {
+    border-color: var(--border);
+    color: var(--text-muted);
+  }
+  50% {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+}
+
+/* ── Error ──────────────────────────────────── */
+.error-message {
+  font-size: 0.8rem;
+  color: var(--red);
+  background: var(--red-bg);
+  border: 1px solid rgba(252, 92, 125, 0.2);
+  border-left: 2px solid var(--red);
+  padding: 0.875rem 1.25rem;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+/* ── Results ──────────────────────────────── */
+.meeting-results {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 3rem;
+  animation: results-in 0.5s ease-out both;
+}
+
+@keyframes results-in {
   from {
-    transform: rotate(0deg);
+    opacity: 0;
+    transform: translateY(12px);
   }
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+/* ── Title Section ──────────────────────── */
+.title-section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  letter-spacing: 0.04em;
+  color: var(--text-bright);
+  line-height: 1;
+}
+
+/* ── Summary + Action Items ─────────────── */
+.summary-section,
+.action-items-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border: none;
+  padding: 0;
+}
+
+.summary-section h2,
+.action-items-section h2 {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0;
+}
+
+.summary-section h2::after,
+.action-items-section h2::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.summary-section p {
+  font-size: 0.9rem;
+  line-height: 1.85;
+  color: var(--text);
+}
+
+/* ── Action Items List ──────────────────── */
+.action-items-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.action-item {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0.9rem 0.75rem;
+  margin: 0 -0.75rem;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background 0.12s;
+  animation: item-in 0.3s ease-out both;
+}
+
+.action-item:first-child {
+  border-top: 1px solid var(--border-subtle);
+}
+
+.action-item:hover {
+  background: var(--surface);
+}
+
+@keyframes item-in {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 
-.card {
-  padding: 2em;
+.action-item:nth-child(1) { animation-delay: 0.06s; }
+.action-item:nth-child(2) { animation-delay: 0.12s; }
+.action-item:nth-child(3) { animation-delay: 0.18s; }
+.action-item:nth-child(4) { animation-delay: 0.24s; }
+.action-item:nth-child(5) { animation-delay: 0.30s; }
+.action-item:nth-child(6) { animation-delay: 0.36s; }
+
+/* ── Priority Badges ──────────────────────── */
+.priority-badge {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.2rem 0.55rem;
+  white-space: nowrap;
+  border-radius: 0;
 }
 
-.read-the-docs {
-  color: #888;
+.priority-high {
+  background: var(--red-bg);
+  color: var(--red);
+  border: 1px solid rgba(252, 92, 125, 0.3);
+}
+
+.priority-medium {
+  background: var(--amber-glow);
+  color: var(--amber);
+  border: 1px solid rgba(245, 166, 35, 0.3);
+}
+
+.priority-low {
+  background: var(--green-bg);
+  color: var(--green);
+  border: 1px solid rgba(6, 214, 160, 0.3);
+}
+
+.action-description {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text);
+}
+
+.assignee {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
